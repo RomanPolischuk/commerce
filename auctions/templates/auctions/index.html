@@ -1,0 +1,43 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <div id="start">
+        {% for auction in auctions %}
+            <div class="auctions">
+                <a href="{{auction.id}}"><strong>{{auction.name}}</strong></a>
+            <!-- <div class="auction">
+                 <a href="{{auction.id}}">{{auction}}</a>
+            </div> -->
+                <div class="auction">
+                    {{auction.cr_user.filds.name}}: {{auction.cr_user}}
+                </div>
+                <div class="auction">
+                {% for  a in groups %}
+                    {{a.name}}
+                {% empty %}
+                    
+                {% endfor %}  
+                                
+                </div>
+                <div class="auction">
+                     
+                </div>
+                <div class="auction">
+                    {{auction.name}} 
+                </div>
+                <div class="auction foto">
+                    <img src="{{auction.link_to_foto}}" alt=f"foto {{auction.name}}"> 
+                </div>
+                <div class="auction">
+                    {{auction.description}} 
+                </div>
+                <div class="auction">
+                    {{auction.price}} 
+                </div>
+            </div>
+        {%empty%}
+            TODO
+        {%endfor%}
+    </div>
+{% endblock %}
